@@ -12,4 +12,16 @@ public class CompanyResponseModel {
     public String getName() {
         return name;
     }
+
+    public CompanyResponseModel setName(String name) {
+        this.name = name;
+
+        return this;
+    }
+
+    public CompanyResponseModel setLogo(String logo) {
+        this.logo = logo;
+
+        return this;
+    }
 }

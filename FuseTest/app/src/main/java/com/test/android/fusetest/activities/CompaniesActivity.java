@@ -8,11 +8,9 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
@@ -57,7 +55,7 @@ public class CompaniesActivity extends Activity implements IReceiver {
             }
         });
 
-        ((Button) findViewById(R.id.retryButton)).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.retryButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mNameEditText.setBackgroundColor(ContextCompat.getColor(CompaniesActivity.this, R.color.white));
@@ -91,11 +89,7 @@ public class CompaniesActivity extends Activity implements IReceiver {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void ReceivedData(Dictionary<Integer, Object> dictionary) {
-        CompanyResponseModel companyResponseModel =
-                (CompanyResponseModel) dictionary.get(ConnectionHelper.RESTAURANTS);
-
+    public void updateScreenData (CompanyResponseModel companyResponseModel){
         if (companyResponseModel != null){
             mNameEditText.setText(companyResponseModel.getName());
             mNameEditText.setBackgroundColor(ContextCompat.getColor(this, R.color.green));
@@ -110,5 +104,10 @@ public class CompaniesActivity extends Activity implements IReceiver {
                     .show();
             Log.d(LOG_TAG, getString(R.string.errorRequestCompany));
         }
+    }
+
+    @Override
+    public void ReceivedData(Dictionary<Integer, Object> dictionary) {
+            updateScreenData ((CompanyResponseModel) dictionary.get(ConnectionHelper.RESTAURANTS));
     }
 }

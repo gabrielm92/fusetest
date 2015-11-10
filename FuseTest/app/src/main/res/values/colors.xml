@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="no_internet_bar_light">#eee0e0e0</color>
+
+    <color name="blue">#1b4154</color>
+    <color name="darkblue">#143546</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="grey">#f2f2f2</color>
+    <color name="darkgrey">#a0a0a0</color>
+    <color name="green">#63A96B</color>
+    <color name="red">#FF0000</color>
+    <color name="attemptsGrey">#878c92</color>
+    <color name="orange">#f79733</color>
+</resources>
